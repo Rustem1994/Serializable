@@ -14,20 +14,22 @@ public class MyTest {
     public void test1() throws IOException, ClassNotFoundException {
         Task task = Task.builder().name("TEST").status("ON").build();
         log.info("tast={}",task);
-       /* FileOutputStream outputStream = new FileOutputStream("save.ser");
+        FileOutputStream outputStream = new FileOutputStream("save.ser");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 
         // сохраняем игру в файл
         objectOutputStream.writeObject(task);
 
         //закрываем поток и освобождаем ресурсы
-        objectOutputStream.close();*/
+        objectOutputStream.close();
 
         FileInputStream fileInputStream = new FileInputStream("save.ser");
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
         Task task1 = (Task)  objectInputStream.readObject();
         log.info("task1={}",task1);
+        Assertions.assertTrue(task1.equals(task));
+        Assertions.assertFalse(task1.equals(task));
 
       /*  Assertions.assertEquals("TEST",task.getName());*/
     }
