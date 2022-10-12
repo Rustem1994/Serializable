@@ -14,14 +14,19 @@ public class Task  implements Serializable {
     private String name;
     private String status;
 
+    private String text;
+
+    private String word;
+
     @Override
     public String toString() {
         return "Task{" +
                 "name='" + name + '\'' +
                 ", status='" + status + '\'' +
+                ", text='" + text + '\'' +
+                ", word='" + word + '\'' +
                 '}';
     }
-
 
     @Override
     public boolean equals(Object obj) {
